@@ -52,6 +52,7 @@ class Tours extends Resource
                 ID::make()->sortable()->hideFromIndex(),
                 Text::make('Title'),
                 Trix::make('Description'),
+                Image::make('image'),
                 Number::make('Price', 'amount'),
             ]),
     
