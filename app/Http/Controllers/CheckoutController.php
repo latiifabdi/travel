@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
 use App\Order;
 use App\Tours;
 use Illuminate\Http\Request;
@@ -22,6 +23,7 @@ class CheckoutController extends Controller
         // charge the user
         Stripe::setApiKey(config('services.stripe.secret'));
 
+
         $charge = Charge::create([
             'amount' => $tour->amount,
             'currency' => 'usd',
@@ -29,15 +31,25 @@ class CheckoutController extends Controller
             'source' => request('token'),
         ]);
 
-
-        // create an order for that user.
-        Order::create([
+        // create customer
+        $customer = Customer::create([
+            'firstname' => request('firstname'),
+            'lastname' => request('lastname'),
             'email' => request('stripeEmail'),
-            'amount' => number_format($charge->amount / 100, 2)
+            'address' => request('address'),
+            'city' => request('city'),
+            'phoneNumber' => request('phoneNumber'),
+            'zipcode' => request('zipcode')
         ]);
 
-        return 'done';
+        // create an order for that user.
+        $order = Order::create([
+            'email' => request('stripeEmail'),
+            'amount' => number_format($charge->amount / 100, 2),
+            'customer_id' => $customer->id,
+            'tour_id' => $tour->id
+        ]);
 
-        // redirect to success page
+        return $order;
     }
 }

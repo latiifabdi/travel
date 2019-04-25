@@ -17,6 +17,7 @@ Route::get('/', 'WelcomeController@index');
 Route::get('/tours/{tour}', 'ToursController@show');
 
 Route::get('/checkout/{tour}', 'CheckoutController@index');
+Route::get('/orders/{order}', 'OrderController@index');
 
 Route::post('/charge', 'CheckoutController@store');
 Route::get('/success', function () {
