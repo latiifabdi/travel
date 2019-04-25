@@ -136,7 +136,7 @@
 		created() {
 			this.stripe = StripeCheckout.configure({
 			  key: 'pk_test_X28Nwy6MIrcwhW61kRy9aEye',
-			  image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+			  image: '/storage/' + this.tour.image,
 			  locale: 'auto',
 			  token: token => {
 			  	this.stripeToken = token.id;
