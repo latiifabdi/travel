@@ -9,7 +9,7 @@
 			<div class="column is one-third">
 				<figure style="margin-bottom: 1em;">
 					<p class="image" style="width: 500px;">
-	      				<img src="/{{ $tour->image }}">
+	      				<img src="/storage/{{ $tour->image }}">
 	    			</p>
 	    			
 				</figure>

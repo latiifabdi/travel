@@ -8,21 +8,6 @@
 			<img src="/images/resize.png" style="width: 1200px; height: 500px;">
 		</div>
 	</section>
-
-	{{-- <header>
-		<section class="hero is-primary is-medium is-bold">
-		  <div class="hero-body">
-		    <div class="container">
-		      <h1 class="title">
-		        Hero title
-		      </h1>
-		      <h2 class="subtitle">
-		        Hero subtitle
-		      </h2>
-		    </div>
-		  </div>
-		</section>
-	</header> --}}
 	
 
 	<div class="container pt-4" style="padding-top: 2em;">
@@ -35,7 +20,7 @@
 							<a style="color: inherit;" href="/tours/{{ $tour->id }}">
 								<div class="card-image" style="margin-bottom: 5px;">
 									<figure class="image is-4by2">
-		      							<img class="tutor-image" src="{{ $tour->image }}" alt="Placeholder image">
+		      							<img class="tutor-image" src="/storage/{{ $tour->image }}" alt="Placeholder image">
 		    						</figure>
 								</div>
 								<div class="card-content">
@@ -73,7 +58,7 @@
 							<a style="color: inherit;" href="/tours/{{ $tour->id }}">
 								<div class="card-image" style="margin-bottom: 5px;">
 									<figure class="image is-4by2">
-		      							<img class="tutor-image" src="{{ $tour->image }}" alt="Placeholder image">
+		      							<img class="tutor-image" src="/storage/{{ $tour->image }}" alt="Placeholder image">
 		    						</figure>
 								</div>
 								<div class="card-content">
