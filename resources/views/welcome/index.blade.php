@@ -26,7 +26,7 @@
 								<div class="card-content">
 									<h1 style="font-weight: bold; margin-bottom: 8px;">
 										{{ $tour->title }}
-										{{ $tour->number_of_days }} days <br> and 1 Night
+										{{ $tour->number_of_days }} days <br>
 
 									</h1>
 									<p style="margin-bottom: 8px;">
@@ -64,7 +64,7 @@
 								<div class="card-content">
 									<h1 style="font-weight: bold; margin-bottom: 8px;">
 										{{ $tour->title }}
-										{{ $tour->number_of_days }} days <br> and 1 Night
+										{{ $tour->number_of_days }} days <br>
 
 									</h1>
 									<p style="margin-bottom: 8px;">
