@@ -34,7 +34,11 @@
 									</p>
 
 
-									<span class="rating-static rating-35"></span>
+									<span class="rating-static rating-35 mb-4"></span>
+
+									<p>
+										<span class="font-bold"> {{ $tour->visits }}</span> booked the tour already
+									</p>
 
 								</div>
 							</a>
@@ -72,7 +76,11 @@
 									</p>
 
 
-									<span class="rating-static rating-35"></span>
+									<span class="rating-static rating-35 mb-2"></span>
+
+									<p>
+										<span class="font-bold"> {{ $tour->visits }}</span> booked the tour already
+									</p>
 
 								</div>
 							</a>

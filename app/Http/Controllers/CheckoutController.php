@@ -8,6 +8,7 @@ use App\Tours;
 use Illuminate\Http\Request;
 use Stripe\Charge;
 use Stripe\Stripe;
+use Redis;
 
 class CheckoutController extends Controller
 {
@@ -19,6 +20,9 @@ class CheckoutController extends Controller
     public function store()
     {
         $tour = Tours::findOrFail(request('tour'));
+
+        \DB::table('tours')->where('id', $tour->id)->increment('visits');
+
 
         // charge the user
         Stripe::setApiKey(config('services.stripe.secret'));
