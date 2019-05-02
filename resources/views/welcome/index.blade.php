@@ -3,12 +3,22 @@
 
 @section('content')
 
-	<section class="hero" style="align-items: center;">
-		<div class="hero-body">
-			<img src="/images/resize.png" style="width: 1200px; height: 500px;">
+	<div class="carousel container" style="margin-top: 2em;">
+		<div>
+		    <img src="/carousel/1.jpeg" style="height: 500px; width: 1130px;">
 		</div>
-	</section>
-	
+
+		<div>
+		    <img src="/carousel/2.jpeg" style="height: 500px; width: 1130px;">
+		</div>
+
+		<div>
+		    <img src="/carousel/3.jpeg" style="height: 500px; width: 1130px;">
+		</div>
+		<div>
+		    <img src="/carousel/4.jpeg" style="height: 500px; width: 1130px;">
+		</div>
+	</div>
 
 	<div class="container pt-4" style="padding-top: 2em;">
 		<h1 id="populartours" style="text-align: center; margin-bottom: 2em; font-weight: bold;">Popular Tours</h1>
@@ -82,7 +92,8 @@
 									<span class="rating-static rating-35 mb-2"></span>
 
 									<p>
-										<span class="font-bold"> {{ $tour->bookcount }}</span> booked this tour already
+										<span class="font-bold"> {{ $tour->bookcount }}</span> booked this tour 
+										@if ($tour->bookcount > 0) already @endif
 									</p>
 
 								</div>
@@ -99,3 +110,24 @@
 	</div>
 
 @stop
+
+@push('beforeScript')
+
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        
+<script>
+ $(document).ready(function() {
+ 	console.log('hello world');
+    $(".carousel").slick({
+    	dots: true,
+    	arrows: false,
+	  	infinite: true,
+	  	speed: 500,
+	  	fade: true,
+	  	cssEase: 'linear'
+    });
+});
+</script>
+
+@endpush

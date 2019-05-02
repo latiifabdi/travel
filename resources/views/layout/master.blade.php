@@ -11,9 +11,11 @@
         <link rel="manifest" href="site.webmanifest">
         <link rel="apple-touch-icon" href="icon.png">
 	   <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
-
+        
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
         <link rel="stylesheet" href="/css/rating.css">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
     </head>
 
     <style>
@@ -29,6 +31,34 @@
             text-transform: uppercase;
 
         }
+
+        .slick-dots {
+            margin-top: 1em;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .slick-dots li.slick-active button:before {
+            opacity: .75;
+            color: black;
+        }
+
+        .slick-dots li button:before {
+            font-family: 'slick';
+            font-size: 6px;
+            line-height: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            content: '•';
+            text-align: center;
+            opacity: .25;
+            color: black;
+            -webkit-font-smoothing: antialiased;
+
+        }
+
     </style>
     <body>
 
@@ -108,6 +138,7 @@
       @stack('beforeScript')
 
       <script src="/js/app.js"></script>
+        
 
     </body>
 </html>
