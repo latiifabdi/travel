@@ -84,7 +84,7 @@
 					<div class="field">
 						<label class="label" for="zipcode">Adults</label>
 						<input type="number" class="input" style="width: 60%; padding-top: 0; padding-bottom: 0;" v-model="adults">
-						<span>X$75</span>
+						<span>X${{(this.tour.amount / 100).toFixed(2)}}</span>
 					</div>
 					<div class="field">
 						<label class="label" for="zipcode">children</label>
@@ -135,7 +135,7 @@
 				zipcode: '',
 				stripeToken: '',
 				stripeEmail: '',
-				adults: 0,
+				adults: 1,
 				children: 0,
 				amount: 0,
 
@@ -160,6 +160,7 @@
 			});
 		},
 
+
 		methods: {
 			openStripe() {
 				this.stripe.open({
@@ -170,10 +171,16 @@
 				})
 			},
 
+			adultPrice() {
+				return this.adults * this.tour.amount;
+			},
+
+			childrenPrice() {
+				return this.children * 25 * 100
+			},
+
 			totalPriceInCents() {
-				var adults = this.adults * 75 * 100;
-				var children = this.children * 25 * 100;
-				return this.tour.amount + children + adults;
+				return this.childrenPrice() + this.adultPrice();
 			},
 
 

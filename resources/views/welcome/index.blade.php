@@ -37,7 +37,10 @@
 									<span class="rating-static rating-35 mb-4"></span>
 
 									<p>
-										<span class="font-bold"> {{ $tour->bookcount }}</span> booked the tour already
+										<span class="font-bold"> 
+											{{ $tour->bookcount }}
+										</span> booked this tour already
+
 									</p>
 
 								</div>
@@ -79,7 +82,7 @@
 									<span class="rating-static rating-35 mb-2"></span>
 
 									<p>
-										<span class="font-bold"> {{ $tour->bookcount }}</span> booked the tour already
+										<span class="font-bold"> {{ $tour->bookcount }}</span> booked this tour already
 									</p>
 
 								</div>

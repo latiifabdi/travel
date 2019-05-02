@@ -1898,7 +1898,7 @@ __webpack_require__.r(__webpack_exports__);
       zipcode: '',
       stripeToken: '',
       stripeEmail: '',
-      adults: 0,
+      adults: 1,
       children: 0,
       amount: 0
     };
@@ -1930,10 +1930,14 @@ __webpack_require__.r(__webpack_exports__);
         email: this.email
       });
     },
+    adultPrice: function adultPrice() {
+      return this.adults * this.tour.amount;
+    },
+    childrenPrice: function childrenPrice() {
+      return this.children * 25 * 100;
+    },
     totalPriceInCents: function totalPriceInCents() {
-      var adults = this.adults * 75 * 100;
-      var children = this.children * 25 * 100;
-      return this.tour.amount + children + adults;
+      return this.childrenPrice() + this.adultPrice();
     },
     submit: function submit() {
       var _this2 = this;
@@ -19945,7 +19949,9 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _c("span", [_vm._v("X$75")])
+              _c("span", [
+                _vm._v("X$" + _vm._s((this.tour.amount / 100).toFixed(2)))
+              ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "field" }, [
