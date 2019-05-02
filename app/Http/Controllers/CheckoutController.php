@@ -29,7 +29,7 @@ class CheckoutController extends Controller
 
 
         $charge = Charge::create([
-            'amount' => $tour->amount,
+            'amount' => request('amount'),
             'currency' => 'usd',
             'description' => $tour->title,
             'source' => request('token'),

@@ -81,18 +81,24 @@
 					<p>Check in in: 01, April 2019</p>
 					<p style="margin-bottom: 2em;">Check out: 07, April, 2019</p>
 
-					<h1 style="font-weight: bold; text-transform: uppercase; margin-bottom: 5px;">Guest</h1>
-					<p>
-						1 Adult (5)
-						0 Children
-					</p>
+					<div class="field">
+						<label class="label" for="zipcode">Adults</label>
+						<input type="number" class="input" style="width: 60%; padding-top: 0; padding-bottom: 0;" v-model="adults">
+						<span>X$75</span>
+					</div>
+					<div class="field">
+						<label class="label" for="zipcode">children</label>
+						<input type="number" class="input" style="width: 60%; padding-top: 0; padding-bottom: 0;" v-model="children">
+						<span>X$25</span>
+					</div>
+					
 				</div>
 
 				<div class="card-footer" style="padding: 10px; background: rgba(118, 190, 90, 0.1); display: block;">
 					<div class="flex justify-between w-full">
 						<p>Total Amount:</p>
 						<p class="font-bold">
-							${{ (tour.amount / 100).toFixed(2)}}
+							${{ (totalPriceInCents() / 100).toFixed(2)}}
 						</p>
 					</div>
 					<div class="block mt-6 text-center">
@@ -129,6 +135,9 @@
 				zipcode: '',
 				stripeToken: '',
 				stripeEmail: '',
+				adults: 0,
+				children: 0,
+				amount: 0,
 
 			}
 		},
@@ -156,13 +165,21 @@
 				this.stripe.open({
 					name: this.tour.title,
     				description: '2 widgets',
-    				amount: this.tour.amount,
+    				amount: this.totalPriceInCents(),
     				email: this.email
 				})
 			},
 
+			totalPriceInCents() {
+				var adults = this.adults * 75 * 100;
+				var children = this.children * 25 * 100;
+				return this.tour.amount + children + adults;
+			},
+
+
 			submit() {
 				this.loading = true;
+				this.amount = this.totalPriceInCents(),
 
 				axios.post("/charge", {
 					firstname: this.firstname,
@@ -174,6 +191,7 @@
 					stripeEmail: this.stripeEmail,
 					token: this.stripeToken,
 					tour: this.tour.id,
+					amount: this.amount,
 				}).then(response => {
 					this.loading = false;
 					window.location.href = "/orders/" + response.data.id;

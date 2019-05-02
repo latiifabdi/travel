@@ -11,7 +11,7 @@
 	
 
 	<div class="container pt-4" style="padding-top: 2em;">
-		<h1 style="text-align: center; margin-bottom: 2em; font-weight: bold;">Popular Tours</h1>
+		<h1 id="populartours" style="text-align: center; margin-bottom: 2em; font-weight: bold;">Popular Tours</h1>
 		@foreach($tours->chunk(3) as $toursCollection)
 			<div class="columns">
 				@foreach($toursCollection as $tour)
@@ -53,7 +53,7 @@
 
 
 		<!-- new tours -->
-		<h1 style="text-align: center; margin-bottom: 2em; font-weight: bold;">New Tours</h1>
+		<h1 id="newtours" style="text-align: center; margin-bottom: 2em; font-weight: bold;">New Tours</h1>
 		@foreach($newTours->chunk(3) as $toursCollection)
 			<div class="columns">
 				@foreach($toursCollection as $tour)

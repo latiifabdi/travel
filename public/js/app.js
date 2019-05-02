@@ -1877,6 +1877,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['tour'],
   data: function data() {
@@ -1891,7 +1897,10 @@ __webpack_require__.r(__webpack_exports__);
       state: '',
       zipcode: '',
       stripeToken: '',
-      stripeEmail: ''
+      stripeEmail: '',
+      adults: 0,
+      children: 0,
+      amount: 0
     };
   },
   created: function created() {
@@ -1917,15 +1926,20 @@ __webpack_require__.r(__webpack_exports__);
       this.stripe.open({
         name: this.tour.title,
         description: '2 widgets',
-        amount: this.tour.amount,
+        amount: this.totalPriceInCents(),
         email: this.email
       });
+    },
+    totalPriceInCents: function totalPriceInCents() {
+      var adults = this.adults * 75 * 100;
+      var children = this.children * 25 * 100;
+      return this.tour.amount + children + adults;
     },
     submit: function submit() {
       var _this2 = this;
 
       this.loading = true;
-      axios.post("/charge", {
+      this.amount = this.totalPriceInCents(), axios.post("/charge", {
         firstname: this.firstname,
         lastname: this.lastname,
         phoneNumber: this.number,
@@ -1934,7 +1948,8 @@ __webpack_require__.r(__webpack_exports__);
         zipcode: this.zipcode,
         stripeEmail: this.stripeEmail,
         token: this.stripeToken,
-        tour: this.tour.id
+        tour: this.tour.id,
+        amount: this.amount
       }).then(function (response) {
         _this2.loading = false;
         window.location.href = "/orders/" + response.data.id;
@@ -19898,20 +19913,74 @@ var render = function() {
               _vm._v("Check out: 07, April, 2019")
             ]),
             _vm._v(" "),
-            _c(
-              "h1",
-              {
+            _c("div", { staticClass: "field" }, [
+              _c("label", { staticClass: "label", attrs: { for: "zipcode" } }, [
+                _vm._v("Adults")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.adults,
+                    expression: "adults"
+                  }
+                ],
+                staticClass: "input",
                 staticStyle: {
-                  "font-weight": "bold",
-                  "text-transform": "uppercase",
-                  "margin-bottom": "5px"
+                  width: "60%",
+                  "padding-top": "0",
+                  "padding-bottom": "0"
+                },
+                attrs: { type: "number" },
+                domProps: { value: _vm.adults },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.adults = $event.target.value
+                  }
                 }
-              },
-              [_vm._v("Guest")]
-            ),
+              }),
+              _vm._v(" "),
+              _c("span", [_vm._v("X$75")])
+            ]),
             _vm._v(" "),
-            _c("p", [
-              _vm._v("\n\t\t\t\t\t1 Adult (5)\n\t\t\t\t\t0 Children\n\t\t\t\t")
+            _c("div", { staticClass: "field" }, [
+              _c("label", { staticClass: "label", attrs: { for: "zipcode" } }, [
+                _vm._v("children")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.children,
+                    expression: "children"
+                  }
+                ],
+                staticClass: "input",
+                staticStyle: {
+                  width: "60%",
+                  "padding-top": "0",
+                  "padding-bottom": "0"
+                },
+                attrs: { type: "number" },
+                domProps: { value: _vm.children },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.children = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("span", [_vm._v("X$25")])
             ])
           ]),
           _vm._v(" "),
@@ -19932,7 +20001,7 @@ var render = function() {
                 _c("p", { staticClass: "font-bold" }, [
                   _vm._v(
                     "\n\t\t\t\t\t\t$" +
-                      _vm._s((_vm.tour.amount / 100).toFixed(2)) +
+                      _vm._s((_vm.totalPriceInCents() / 100).toFixed(2)) +
                       "\n\t\t\t\t\t"
                   )
                 ])

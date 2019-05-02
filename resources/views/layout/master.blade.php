@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
+        <title>African Travel Tour</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="csrf-token" content="{{ csrf_token() }}">
@@ -36,7 +36,7 @@
             <div class="flex">
                 <div>
                     <h2>
-                        <a href="/"  style="color: inherit;">Tours</a>
+                        <a href="/"  style="color: inherit; font-weight: bold;">African Travel Tour</a>
                     </h2>
                 </div>
                 <ul class="flex">
@@ -44,26 +44,12 @@
                         <a href="/tours" style="color: black;" class="link">Tours</a>
                     </li>
                     <li>
-                        <a href="/tours" style="color: black;" class="link">popular Tours</a>
+                        <a href="/#populartours" style="color: black;" class="link">popular Tours</a>
                     </li>
                     <li>
-                        <a href="/tours" style="color: black;" class="link">New Tours</a>
+                        <a href="/#newtours" style="color: black;" class="link">New Tours</a>
                     </li>
-                    {{-- <li>
-                        <a href="/categories/1" class="link">Men</a>
-                    </li>
-                    <li>
-                        <a href="/categories/2" class="link">Women</a>
-                    </li>
-                    <li>
-                        <a href="/categories/4" class="link">Shoes</a>
-                    </li>
-                    <li>
-                        <a href="/categories/5" class="link">Bags</a>
-                    </li>
-                    <li>
-                        <a href="/categories/3" class="link">Electronics</a>
-                    </li> --}}
+                
                 </ul>
             </div>
         </header>
@@ -77,28 +63,7 @@
                 <div class="columns">
                     <div class="column">
                         <h2 style="color: grey; margin-bottom: 8px;">Tours</h2>
-                       {{--  <ul>
-                            <li style="margin-bottom: 10px;">
-                                <a href="/products" style="color: black; text-transform: uppercase;">Shop</a>
-                            </li>
-
-                            <li style="margin-bottom: 10px;">
-                                <a href="/categories/1" style="color: black; text-transform: uppercase;">Men</a>
-                            </li>
-                            
-                            <li style="margin-bottom: 10px;">
-                                <a href="/categories/2r" style="color: black; text-transform: uppercase;">Women</a>
-                            </li>
-                            <li style="margin-bottom: 10px;">
-                                <a href="/categories/5" style="color: black; text-transform: uppercase;">Bags</a>
-                            </li>
-                            <li style="margin-bottom: 10px;">
-                                <a href="/categories/4" style="color: black; text-transform: uppercase;">Shoes</a>
-                            </li>
-                            <li>
-                                <a href="/categories/3" style="color: black; text-transform: uppercase;">Electronics</a>
-                            </li>
-                        </ul> --}}
+            
                     </div>
                     <div class="column">
                         <h2 style="color: grey; margin-bottom: 8px;">QUICK LINKS</h2>
@@ -143,9 +108,6 @@
       @stack('beforeScript')
 
       <script src="/js/app.js"></script>
-
-
-
 
     </body>
 </html>
