@@ -21,7 +21,7 @@ class CheckoutController extends Controller
     {
         $tour = Tours::findOrFail(request('tour'));
 
-        \DB::table('tours')->where('id', $tour->id)->increment('visits');
+        \DB::table('tours')->where('id', $tour->id)->increment('bookcount');
 
 
         // charge the user
