@@ -91,6 +91,11 @@
 						<input type="number" class="input" style="width: 60%; padding-top: 0; padding-bottom: 0;" v-model="children">
 						<span>X$25</span>
 					</div>
+
+					<div class="field">
+						<label class="label" for="zipcode">Date of the tour</label>
+						<input type="date" class="input" style="width: 100%; padding-top: 0; padding-bottom: 0;" v-model="date">
+					</div>
 					
 				</div>
 
@@ -138,6 +143,7 @@
 				adults: 1,
 				children: 0,
 				amount: 0,
+				date: '',
 
 			}
 		},
@@ -199,6 +205,7 @@
 					token: this.stripeToken,
 					tour: this.tour.id,
 					amount: this.amount,
+					travelDate: this.date,
 				}).then(response => {
 					this.loading = false;
 					window.location.href = "/orders/" + response.data.id;

@@ -1883,6 +1883,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['tour'],
   data: function data() {
@@ -1900,7 +1905,8 @@ __webpack_require__.r(__webpack_exports__);
       stripeEmail: '',
       adults: 1,
       children: 0,
-      amount: 0
+      amount: 0,
+      date: ''
     };
   },
   created: function created() {
@@ -1953,7 +1959,8 @@ __webpack_require__.r(__webpack_exports__);
         stripeEmail: this.stripeEmail,
         token: this.stripeToken,
         tour: this.tour.id,
-        amount: this.amount
+        amount: this.amount,
+        travelDate: this.date
       }).then(function (response) {
         _this2.loading = false;
         window.location.href = "/orders/" + response.data.id;
@@ -19987,6 +19994,39 @@ var render = function() {
               }),
               _vm._v(" "),
               _c("span", [_vm._v("X$25")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "field" }, [
+              _c("label", { staticClass: "label", attrs: { for: "zipcode" } }, [
+                _vm._v("Date of the tour")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.date,
+                    expression: "date"
+                  }
+                ],
+                staticClass: "input",
+                staticStyle: {
+                  width: "100%",
+                  "padding-top": "0",
+                  "padding-bottom": "0"
+                },
+                attrs: { type: "date" },
+                domProps: { value: _vm.date },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.date = $event.target.value
+                  }
+                }
+              })
             ])
           ]),
           _vm._v(" "),

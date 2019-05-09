@@ -89,6 +89,11 @@
                             <th>Address</th>
                             <th>Phone Number</th>
                             <th>City</th>
+
+                            @if ($order->customer->travel_date )
+                                <th>Date Travel</th>
+                            @endif
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -99,6 +104,7 @@
                             <td>{{ $order->customer->address }}</td>
                             <td>{{ $order->customer->phoneNumber }}</td>
                             <td>{{ $order->customer->city }}</td>
+                             <td>{{ $order->customer->travel_date }}</td>
                         </tr>
                     </tbody>
                </table>

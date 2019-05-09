@@ -23,7 +23,6 @@ class CheckoutController extends Controller
 
         \DB::table('tours')->where('id', $tour->id)->increment('bookcount');
 
-
         // charge the user
         Stripe::setApiKey(config('services.stripe.secret'));
 
@@ -43,7 +42,8 @@ class CheckoutController extends Controller
             'address' => request('address'),
             'city' => request('city'),
             'phoneNumber' => request('phoneNumber'),
-            'zipcode' => request('zipcode')
+            'zipcode' => request('zipcode'),
+            'travel_date' => request('travelDate'),
         ]);
 
         // create an order for that user.
