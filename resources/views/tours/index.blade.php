@@ -16,8 +16,15 @@
   				<input class="input" style="width: 60%;" type="text" placeholder="search tours here" name="tours">
 			</form>
 		</div>
-
-		<h1 style="text-align: center; margin-bottom: 2em; font-weight: bold;">All Tours</h1>
+		
+		@if (request('tours'))
+			<h1 style="text-align: center; margin-bottom: 2em; font-weight: bold;">
+				{{ request('tours') }}
+			</h1>
+		@else
+			<h1 style="text-align: center; margin-bottom: 2em; font-weight: bold;">All Tours</h1>
+		@endif
+		
 		@foreach($tours->chunk(3) as $toursCollection)
 			<div class="columns">
 				@foreach($toursCollection as $tour)
