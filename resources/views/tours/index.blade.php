@@ -11,6 +11,12 @@
 		    </div>
 		@endif
 
+		<div class="my-8">
+			<form method="GET" action="/search" class="control" style="display: flex; justify-content: center;">
+  				<input class="input" style="width: 60%;" type="text" placeholder="search tours here" name="tours">
+			</form>
+		</div>
+
 		<h1 style="text-align: center; margin-bottom: 2em; font-weight: bold;">All Tours</h1>
 		@foreach($tours->chunk(3) as $toursCollection)
 			<div class="columns">
