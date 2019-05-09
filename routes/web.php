@@ -18,7 +18,8 @@ Route::get('/tours/', 'ToursController@index');
 Route::get('/tours/{tour}', 'ToursController@show');
 
 Route::get('/checkout/{tour}', 'CheckoutController@index');
-Route::get('/orders/{order}', 'OrderController@index');
+Route::get('/orders/{order}', 'OrderController@show');
+Route::delete('/orders/{order}', 'OrderController@destory');
 
 Route::post('/charge', 'CheckoutController@store');
 Route::get('/success', function () {

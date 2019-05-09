@@ -5,6 +5,12 @@
 
 
 	<div class="container" style="padding-top: 2em; padding-bottom: 8rem;">
+		@if (session('orders'))
+		    <div class="notification is-primary">
+		        {{ session('orders') }}
+		    </div>
+		@endif
+
 		<h1 style="text-align: center; margin-bottom: 2em; font-weight: bold;">All Tours</h1>
 		@foreach($tours->chunk(3) as $toursCollection)
 			<div class="columns">

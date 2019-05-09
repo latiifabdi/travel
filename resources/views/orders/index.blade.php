@@ -60,6 +60,14 @@
                     <div class="footer-custom py-8 bg-white px-6">
                         <div class="flex justify-between">
                             <p class="font-bold">DKTJVUA</p>
+                            <form action="/orders/{{ $order->id }}" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <button class="help font-bold  is-danger">
+                                    Cancel booking
+                                </button>
+                            </form>
+                            
                             <p class="text-sm">
                                 {{$order->email}}
                             </p>
