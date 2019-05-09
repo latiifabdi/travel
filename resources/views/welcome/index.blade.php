@@ -5,18 +5,18 @@
 
 	<div class="carousel container" style="margin-top: 2em;">
 		<div>
-		    <img src="/carousel/1.jpeg" style="height: 500px; width: 1130px;">
+		    <img src="/carousel/1.jpeg" style="height: 500px; width: 98%;">
 		</div>
 
 		<div>
-		    <img src="/carousel/2.jpeg" style="height: 500px; width: 1130px;">
+		    <img src="/carousel/2.jpeg" style="height: 500px; width: 98%;">
 		</div>
 
 		<div>
-		    <img src="/carousel/3.jpeg" style="height: 500px; width: 1130px;">
+		    <img src="/carousel/3.jpeg" style="height: 500px; width: 98%;">
 		</div>
 		<div>
-		    <img src="/carousel/4.jpeg" style="height: 500px; width: 1130px;">
+		    <img src="/carousel/4.jpeg" style="height: 500px; width: 98%;">
 		</div>
 	</div>
 

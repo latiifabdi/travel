@@ -13,7 +13,7 @@
 
 		<div class="my-8">
 			<form method="GET" action="/search" class="control" style="display: flex; justify-content: center;">
-  				<input class="input" style="width: 60%;" type="text" placeholder="search tours here" name="tours">
+  				<input class="input" style="width: 60%;" type="search" placeholder="search tours here" name="tours">
 			</form>
 		</div>
 		
