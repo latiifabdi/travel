@@ -68,8 +68,38 @@
                 </div>
             </div>
         </div>
+
+        <div class="mt-12">
+            @if ($order->customer)
+                <h1 class="mb-3">Contact Detail</h1>
+               <table class="table">
+                    <thead>
+                        <tr>
+                            <th>First Name:</th>
+                            <th>Last Name:</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th>Phone Number</th>
+                            <th>City</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ $order->customer->firstname }}</td>
+                            <td>{{ $order->customer->lastname }}</td>
+                            <td>{{ $order->customer->email }}</td>
+                            <td>{{ $order->customer->address }}</td>
+                            <td>{{ $order->customer->phoneNumber }}</td>
+                            <td>{{ $order->customer->city }}</td>
+                        </tr>
+                    </tbody>
+               </table>
+            @endif
+        </div>
     </div>
 </section>
+
+
 
 @stop
 

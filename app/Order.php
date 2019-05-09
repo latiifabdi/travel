@@ -12,4 +12,9 @@ class Order extends Model
     {
         return $this->belongsTo(Tours::class, 'tour_id');
     }
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
 }

@@ -10,6 +10,9 @@ class OrderController extends Controller
     public function index(Order $order)
     {
         $order = $order->load('tour');
+
+
+        $order = $order->load('customer');
         
         return view('orders.index', compact('order'));
     }

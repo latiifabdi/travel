@@ -120,7 +120,6 @@
  $(document).ready(function() {
  	console.log('hello world');
     $(".carousel").slick({
-    	dots: true,
     	arrows: false,
 	  	infinite: true,
 	  	speed: 500,
